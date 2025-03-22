@@ -774,9 +774,17 @@ form {
 }
 
 /* Estilos gerais para o footer */
+@keyframes footerBackground {
+  0% { background-color: #1f1f1fea; }
+  33% { background-color: #2b2b2b; }
+  66% { background-color: #3b3b3b; }
+  100% { background-color: #4b4b4b; }
+}
+
+
 /* Footer container */
 .footer-container {
-  background-color: #1f1f1f;
+  animation: footerBackground 8s infinite alternate ease-in-out;
   color: white;
   padding: 2rem;
 }

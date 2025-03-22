@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Button, Box, IconButton, Drawer, List, ListItem, ListI
 import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo-removebg.png';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);

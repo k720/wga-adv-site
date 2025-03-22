@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { client } from "../sanity/client";
 import { Box, Typography, Grid, IconButton } from "@mui/material";
 import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo-removebg.png";
 
 // Mapeamento de ícones e cores oficiais
 const iconMap = {
@@ -18,17 +18,31 @@ const iconMap = {
 // Função para limpar caracteres especiais de números de telefone e WhatsApp
 const cleanNumber = (number) => number.replace(/[^\d]/g, ""); // Remove tudo que não for número
 
+// Cores para animação do background
+const colors = ["#1f1f1fea", "#2b2b2b", "#3b3b3b"];
+const transitionTime = 5000; // Tempo de transição em ms
+
 const Footer = () => {
     const [contato, setContato] = useState([]);
+    const [bgColor, setBgColor] = useState(colors[0]);
 
     useEffect(() => {
         client.fetch(`*[_type == "contact"]`).then((data) => {
             setContato(data);
         });
+
+        // Animação do background
+        let index = 0;
+        const interval = setInterval(() => {
+            index = (index + 1) % colors.length;
+            setBgColor(colors[index]);
+        }, transitionTime);
+
+        return () => clearInterval(interval);
     }, []);
 
     return (
-        <Box className="footer-container">
+        <Box className="footer-container" sx={{ backgroundColor: bgColor, transition: "background-color 2s ease-in-out" }}>
             <Grid container spacing={2} justifyContent="center" alignItems="center">
                 {/* Logo */}
                 <Grid item xs={12} sm={6} md={3} className="footer-logo">
