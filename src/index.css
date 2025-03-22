@@ -1,0 +1,862 @@
+/* Reset de estilos padrões para garantir consistência */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #F1F2EB; /* Cor de fundo principal */
+  color: #0D0D0D; /* Cor do texto */
+  line-height: 1.6;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar */
+/* Adiciona o efeito de desfoque na navbar e transições suaves */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px); /* Aplica o desfoque */
+  transition: background-color 0.3s, backdrop-filter 0.3s; /* Suaviza a transição */
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1); /* Linha abaixo da Navbar */
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  top: 10px; /* Ajuste do logo para baixo */
+  left: 20px; /* Ajuste do logo para a direita */
+}
+
+.navbar .links {
+  display: flex;
+  gap: 20px;
+  margin-left: auto; /* Move os botões para a esquerda */
+}
+
+.navbar .links a {
+  color: #F1F2EB;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navbar .links a:hover {
+  color: #6CAFD9; /* Cor de hover */
+}
+
+/* Estilo quando o usuário rola a página */
+.navbar.scrolled {
+  background-color: #372773; /* Cor da navbar após rolar */
+}
+
+
+/* Seções */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 36px;
+  color: #372773; /* Cor dos títulos */
+  margin-bottom: 20px;
+}
+
+.section p {
+  font-size: 18px;
+  color: #0D0D0D;
+  margin-bottom: 20px;
+}
+
+.section img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .section h2 {
+    font-size: 28px;
+  }
+
+  .section p {
+    font-size: 16px;
+  }
+
+  .navbar .logo {
+    font-size: 20px;
+  }
+
+  .navbar .links a {
+    font-size: 16px;
+  }
+
+  .banner .content h3 {
+    font-size: 28px;
+  }
+
+  .team .team-member {
+    width: 100%; /* Ajusta os membros para ocuparem toda a largura */
+    margin: 10px 0;
+  }
+
+  .services .service-item {
+    width: 100%; /* Ajusta os serviços para ocuparem toda a largura */
+    margin: 10px 0;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr; /* Deixa o formulário com uma coluna */
+  }
+}
+
+/* Responsividade para telas menores que 480px */
+@media (max-width: 480px) {
+  .section h2 {
+    font-size: 22px;
+  }
+
+  .section p {
+    font-size: 14px;
+  }
+
+  .navbar .logo {
+    font-size: 18px;
+  }
+
+  .navbar .links a {
+    font-size: 14px;
+  }
+
+  .banner .content h3 {
+    font-size: 24px;
+  }
+
+  .team .team-member {
+    width: 100%; /* Ajusta os membros para ocuparem toda a largura */
+    margin: 10px 0;
+  }
+
+  .services .service-item {
+    width: 100%; /* Ajusta os serviços para ocuparem toda a largura */
+    margin: 10px 0;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+  }
+
+  .contact-form button {
+    font-size: 14px;
+  }
+}
+
+/* Seção "Quem Somos" */
+/* Estilos principais do componente Banner */
+.banner-container {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 300px; /* Valor padrão para telas pequenas */
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 90%;
+}
+
+.banner-text {
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: #F1F2EB;
+}
+
+/* Responsividade */
+@media (min-width: 600px) {
+  .banner-container {
+    padding: 30px;
+    height: 400px;
+  }
+
+  .banner-content {
+    max-width: 80%;
+  }
+
+  .banner-text {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 960px) {
+  .banner-container {
+    padding: 40px;
+    height: 500px;
+  }
+
+  .banner-content {
+    max-width: 70%;
+  }
+
+  .banner-text {
+    font-size: 30px !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .banner-container {
+    height: 600px;
+  }
+
+  .banner-content {
+    max-width: 60%;
+  }
+
+  .banner-text {
+    font-size: 40px !important;
+  }
+}
+
+/* Estilos para a seção "WhoWeAre"*/
+.who-we-are-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.who-we-are-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+      font-size: 2rem;
+  }
+
+  .who-we-are-description {
+      font-size: 1rem;
+  }
+}
+
+/* Estilos para a seção "Equipe" */
+.team-container {
+  text-align: center;
+  margin: 0 auto;
+  padding: 50px 20px;
+  background-color: #F1F2EB; /* Cor escura do seu tema */
+}
+
+.team-title {
+  font-size: 2.5rem;
+  color: #624F8C;
+  margin-bottom: 40px;
+}
+
+.team-card {
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+}
+
+.team-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.team-info {
+  padding: 20px;
+  color: #fff;
+}
+
+.team-name {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #6CAFD9; /* Cor de destaque */
+}
+
+.team-title {
+  font-size: 3rem; /* Ajuste o tamanho conforme necessário */
+  font-weight: bold;
+  color: #624F8C; /* Cor atual ou a cor desejada */
+  margin-bottom: 40px;
+  margin-bottom: 60px !important;
+  font-family: 'Roboto', sans-serif; /* Ou outra fonte que se encaixe */
+  letter-spacing: 2px; /* Espaçamento entre letras para dar um toque mais profissional */
+}
+
+.team-email {
+  font-size: 1rem;
+  color: #f2a900;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.team-email:hover {
+  color: #fff;
+}
+
+@keyframes borderAnimation {
+  0% {
+    border-top: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+  }
+  25% {
+    border-top: 4px solid #6CAFD9;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+  }
+  50% {
+    border-top: 4px solid #6CAFD9;
+    border-right: 4px solid #6CAFD9;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+  }
+  75% {
+    border-top: 4px solid #6CAFD9;
+    border-right: 4px solid #6CAFD9;
+    border-bottom: 4px solid #6CAFD9;
+    border-left: 4px solid transparent;
+  }
+  100% {
+    border-top: 4px solid #6CAFD9;
+    border-right: 4px solid #6CAFD9;
+    border-bottom: 4px solid #6CAFD9;
+    border-left: 4px solid #6CAFD9;
+  }
+}
+
+.team-box {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  border: 4px solid transparent; /* Define a borda inicial */
+}
+
+.team-box:hover {
+  transform: translateY(-10px);
+  animation: borderAnimation 0.5s linear forwards;
+}
+
+/* Personalizando o Scrollbar para os cards da equipe */
+.team-box-desc::-webkit-scrollbar {
+  width: 6px; /* Deixa a barra de rolagem bem fina */
+}
+
+.team-box-desc::-webkit-scrollbar-track {
+  background: transparent; /* Fundo invisível */
+}
+
+.team-box-desc::-webkit-scrollbar-thumb {
+  background: rgba(108, 175, 217, 0.5); /* Azul #6CAFD9 com transparência */
+  border-radius: 4px; /* Borda arredondada */
+}
+
+.team-box-desc::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 175, 217, 0.8); /* Cor um pouco mais visível no hover */
+}
+
+/* Serviços */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  padding-left: 10px; /* Adicionando margem à esquerda */
+  padding-right: 10px; /* Adicionando margem à direita */
+  margin-left: auto;  /* Garantindo que o grid seja centralizado */
+  margin-right: auto; /* Garantindo que o grid seja centralizado */
+  max-width: 1200px; /* Limita a largura do conteúdo */
+}
+
+/* Estilo para o card de serviço */
+.service-card {
+  border-radius: 8px;
+  background-color: #f1f2eb;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de hover para os cards */
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9; /* Ajuste a cor de fundo no hover */
+}
+
+/* Título dos serviços */
+.service-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333; /* Cor original do site */
+}
+
+/* Conteúdo do serviço (sem centralizar) */
+.service-content {
+  text-align: left;
+}
+
+
+/* Botão de contato */
+.contact-button {
+  margin-top: 10px;
+  background-color: #f2a900; /* Mantendo as cores do site */
+  color: #fff;
+  &:hover {
+    background-color: #e58e00; /* Ajuste para um hover mais suave */
+  }
+}
+
+
+.services-title {
+  font-weight: bold;  /* Deixa o título em negrito */
+  font-size: 1.8rem;  /* Aumenta o tamanho do título */
+  color: #395D73;
+  
+  margin-bottom: 10px;
+  margin-top: 20% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Título dentro do Box de hover */
+.services-title-hover {
+  font-weight: bold;  /* Título em negrito */
+  font-size: 1.8rem;
+  color: #F1F2EB;  /* Cor branca para o título no hover */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .services-title {
+    font-size: 1.6rem; 
+    margin-top: 30% !important; /* Ajuste do espaço superior para telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .services-title {
+    font-size: 1.4rem; 
+    margin-top: 40% !important; /* Menos espaço superior em dispositivos muito pequenos */
+  }
+}
+
+/* Números */
+.numbers-container {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.numbers-container .MuiTypography-root {
+  color: #395D73;
+  margin-bottom: 40px;
+}
+
+.numbers-container .MuiGrid-root {
+  display: flex;
+  justify-content: center;
+}
+
+.numbers-container .MuiBox-root {
+  background-color: #F1F2EB;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.numbers-container .MuiTypography-h6 {
+  font-weight: bold;
+  color: #395D73;
+  margin-bottom: 10px;
+}
+
+
+/* Formulário de Contato */
+.contato-container {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-height: 100vh;
+  background: #372773;
+}
+
+.contato-imagem {
+  width: 50%;
+}
+
+.contato-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.contato-form {
+  width: 50%;
+  padding: 50px;
+  background: #372773;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contato-titulo {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+
+.espacamento-texto {
+  height: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+}
+
+.botao-enviar {
+  background: linear-gradient(135deg, #6a5acd, #483d8b);
+  color: white !important;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.botao-enviar:hover {
+  background: linear-gradient(135deg, #8a2be2, #4b0082);
+  transform: scale(1.05);
+}
+
+/* Responsividade */
+@media only screen and (max-width: 1024px) {
+  .contato-container {
+      flex-direction: column;
+  }
+
+  .contato-imagem {
+      width: 100%;
+      height: 300px;
+  }
+
+  .contato-form {
+      width: 100%;
+      padding: 30px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .contato-form {
+      padding: 20px;
+  }
+
+  .contato-titulo {
+      font-size: 24px;
+  }
+
+  .espacamento-texto {
+      height: 20px;
+  }
+
+  .input {
+      font-size: 14px;
+      padding: 12px;
+  }
+
+  .botao-enviar {
+      font-size: 16px;
+      padding: 12px;
+  }
+}
+
+/* Blog */
+.blog-container {
+  padding: 40px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.blog-card {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.blog-card:hover {
+  transform: scale(1.02);
+}
+
+.blog-image {
+  height: 180px;
+  object-fit: cover;
+}
+
+.blog-card-content {
+  padding: 15px;
+  background-color: #333;
+}
+
+.blog-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #F1F2EB;
+}
+
+.blog-preview {
+  color: #F1F2EB;
+  font-size: 14px;
+}
+
+.blog-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-modal-content {
+  width: 90%;
+  max-width: 500px;
+  background-color: #395D73;
+  color: #F1F2EB;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Estilo para o botão de fechar */
+.blog-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #F1F2EB;
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilo para a imagem do modal */
+.blog-modal-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.blog-modal-text {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Estilo do título do modal */
+.blog-modal-title {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #F1F2EB;  /* Cor do título */
+  font-family: 'Roboto', sans-serif;  /* Fonte moderna */
+}
+
+/* Scroll do conteúdo do modal */
+.blog-modal-scroll {
+  max-height: 250px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.blog-modal-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.blog-modal-scroll::-webkit-scrollbar-thumb {
+  background: #F1F2EB;
+  border-radius: 10px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .blog-container {
+    padding: 20px;
+  }
+
+  .blog-title {
+    font-size: 18px;
+  }
+
+  .blog-modal-content {
+    width: 95%;
+    max-width: 400px;
+  }
+
+  .blog-modal-scroll {
+    max-height: 200px;
+  }
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 480px) {
+  .blog-modal-title {
+    font-size: 1.5rem;  /* Ajuste o tamanho da fonte para telas pequenas */
+  }
+
+  .blog-modal-content {
+    padding: 15px;
+  }
+
+  .blog-modal-close {
+    top: 5px;
+    right: 5px;
+  }
+}
+
+/* Estilos gerais para o footer */
+/* Footer container */
+.footer-container {
+  background-color: #1f1f1f;
+  color: white;
+  padding: 2rem;
+}
+
+/* Logo */
+.footer-logo img {
+  width: 200px; /* Tamanho do logo */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Centraliza a imagem */
+}
+
+/* Contact Info */
+.contact-info {
+  margin-top: 1rem;
+}
+
+.contact-info ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.contact-info li {
+  margin: 0.5rem 0;
+}
+
+.social-icons {
+  text-align: center;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.icon-button {
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon-button:hover {
+  transform: scale(1.2);
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+  .footer-container {
+      padding: 1rem;
+  }
+
+  .footer-logo img {
+      width: 150px; /* Ajusta o logo para telas menores */
+  }
+}
+
+@media (max-width: 1200px) {
+  .icon-container {
+      max-width: 100%; /* Permite mais flexibilidade */
+      gap: 8px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .icon-container {
+      max-width: 100%; /* Permite mais flexibilidade */
+      gap: 1px;
+  }
+}
