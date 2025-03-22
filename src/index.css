@@ -19,45 +19,30 @@ a {
 }
 
 /* Navbar */
-/* Adiciona o efeito de desfoque na navbar e transições suaves */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(10px); /* Aplica o desfoque */
-  transition: background-color 0.3s, backdrop-filter 0.3s; /* Suaviza a transição */
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1); /* Linha abaixo da Navbar */
-}
-
-.navbar .logo {
-  font-size: 24px;
-  font-weight: bold;
-  position: relative;
-  top: 10px; /* Ajuste do logo para baixo */
-  left: 20px; /* Ajuste do logo para a direita */
-}
-
-.navbar .links {
-  display: flex;
-  gap: 20px;
-  margin-left: auto; /* Move os botões para a esquerda */
+  backdrop-filter: blur(10px);
+  transition: background-color 0.3s, backdrop-filter 0.3s;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 .navbar .links a {
-  color: #F1F2EB;
+  color: #f1f2eb;
   font-size: 18px;
   transition: color 0.3s ease;
 }
 
 .navbar .links a:hover {
-  color: #6CAFD9; /* Cor de hover */
+  color: #6cafd9;
 }
 
-/* Estilo quando o usuário rola a página */
-.navbar.scrolled {
-  background-color: #372773; /* Cor da navbar após rolar */
+/* Menu Mobile */
+.MuiDrawer-paper {
+  background-color: #1f1f1f !important;
+  color: #f1f2eb !important;
 }
-
 
 /* Seções */
 .section {

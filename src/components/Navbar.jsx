@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, Button, Typography, Box, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { AppBar, Toolbar, Button, Box, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
@@ -22,7 +22,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50); // Muda a cor se rolar mais de 50px
+      setScrolled(window.scrollY > 50); 
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -42,29 +42,31 @@ const Navbar = () => {
     <AppBar
       position="sticky"
       sx={{
-        backgroundColor: scrolled ? '#1f1f1fea' : '#1f1f1f', // Muda a cor após o scroll
-        backdropFilter: 'blur(10px)', // Aplica o desfoque
-        transition: 'background-color 0.3s, backdrop-filter 0.3s', // Suaviza a transição
+        backgroundColor: scrolled ? '#1f1f1fea' : '#1f1f1f',
+        backdropFilter: 'blur(10px)',
+        transition: 'background-color 0.3s, backdrop-filter 0.3s',
       }}
     >
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
+      <Toolbar sx={{ minHeight: { xs: "70px", sm: "80px" }, justifyContent: 'space-between', px: 2 }}>
         {/* Logo Responsiva */}
-        <Typography variant="h6" sx={{ flexGrow: 1, position: 'relative' }}>
-          <Box component="img"
-            src={logo}
-            alt="logo"
-            sx={{
-              width: { xs: "120px", sm: "150px" },
-              position: 'relative',
-              top: '10px', // Desce um pouco o logo
-              left: '100px' // Move o logo para a direita
-            }}
-          />
-        </Typography>
+        <Box
+          component="img"
+          src={logo}
+          alt="logo"
+          sx={{
+            height: { xs: "50px", sm: "60px" },  // Mantendo um tamanho fixo
+            maxHeight: "100%",  // Evita que ultrapasse o Navbar
+            width: "auto",  // Mantém proporção
+            position: "absolute",
+            left: isMobile ? "50%" : "20px",
+            transform: isMobile ? "translateX(-50%)" : "none",
+            top: isMobile ? "12px" : "8px", 
+          }}
+        />
 
         {/* Menu Desktop */}
         {!isMobile ? (
-          <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+          <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', ml: 'auto' }}>
             {menuItems.map((item, index) => (
               <Button
                 key={index}
@@ -77,17 +79,32 @@ const Navbar = () => {
           </Box>
         ) : (
           // Ícone de menu para Mobile
-          <IconButton color="inherit" edge="end" onClick={() => setMobileOpen(true)}>
+          <IconButton 
+            color="inherit" 
+            edge="end" 
+            onClick={() => setMobileOpen(true)}
+            sx={{ position: 'absolute', right: 20 }}
+          >
             <MenuIcon />
           </IconButton>
         )}
 
         {/* Drawer (Menu Lateral para Mobile) */}
-        <Drawer anchor="right" open={mobileOpen} onClose={() => setMobileOpen(false)}>
+        <Drawer
+          anchor="right"
+          open={mobileOpen}
+          onClose={() => setMobileOpen(false)}
+          sx={{
+            '& .MuiDrawer-paper': {
+              backgroundColor: '#1f1f1f',
+              color: '#F1F2EB',
+            },
+          }}
+        >
           <List sx={{ width: 250 }}>
             {menuItems.map((item, index) => (
               <ListItem button key={index} onClick={() => { handleScrollToSection(item.sectionId); setMobileOpen(false); }}>
-                <ListItemText primary={item.label} />
+                <ListItemText primary={item.label} sx={{ textAlign: 'center' }} />
               </ListItem>
             ))}
           </List>
