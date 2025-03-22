@@ -325,22 +325,16 @@ a {
     border-left: 4px solid transparent;
   }
   25% {
-    border-top: 4px solid #6CAFD9;
+    border-top: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-bottom: 4px solid transparent;
+    border-bottom: 4px solid #6CAFD9;
     border-left: 4px solid transparent;
   }
   50% {
-    border-top: 4px solid #6CAFD9;
-    border-right: 4px solid #6CAFD9;
-    border-bottom: 4px solid transparent;
-    border-left: 4px solid transparent;
-  }
-  75% {
-    border-top: 4px solid #6CAFD9;
+    border-top: 4px solid transparent;
     border-right: 4px solid #6CAFD9;
     border-bottom: 4px solid #6CAFD9;
-    border-left: 4px solid transparent;
+    border-left: 4px solid #6CAFD9;
   }
   100% {
     border-top: 4px solid #6CAFD9;
@@ -360,7 +354,7 @@ a {
 
 .team-box:hover {
   transform: translateY(-10px);
-  animation: borderAnimation 0.5s linear forwards;
+  animation: borderAnimation 0.5s linear forwards, footerBackground 8s infinite alternate ease-in-out;
 }
 
 /* Personalizando o Scrollbar para os cards da equipe */
